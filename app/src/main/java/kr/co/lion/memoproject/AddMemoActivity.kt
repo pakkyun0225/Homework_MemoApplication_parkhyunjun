@@ -51,13 +51,8 @@ class AddMemoActivity : AppCompatActivity() {
                                 //데이터를 리스트에 저장
                                 saveData()
 
-                                val memoIntent = Intent()
-                                memoIntent.putExtra("subtitle", memo.subtitle)
-                                memoIntent.putExtra("date", memo.date)
-                                memoIntent.putExtra("content", memo.content)
-
-                                setResult(RESULT_OK, memoIntent)
                                 Util.hideFocusKeyboard(this@AddMemoActivity)
+                                setResult(RESULT_OK)
                                 finish()
                             }
                         }
@@ -105,6 +100,8 @@ class AddMemoActivity : AppCompatActivity() {
             memo.subtitle = editTextAddSubtitle.text.toString()
             memo.date = LocalDate.now().toString()
             memo.content = editTextAddContent.text.toString()
+
+            Util.memoList.add(memo)
         }
     }
 }

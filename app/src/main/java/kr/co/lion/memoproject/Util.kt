@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.os.SystemClock
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlin.concurrent.thread
@@ -41,6 +42,10 @@ class Util{
             dialogBuilder.setMessage(message)
             dialogBuilder.setPositiveButton("확인", listener)
             dialogBuilder.show()
+        }
+
+        fun toastMessage(context: Context, text: String){
+            Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
         }
     }
 }

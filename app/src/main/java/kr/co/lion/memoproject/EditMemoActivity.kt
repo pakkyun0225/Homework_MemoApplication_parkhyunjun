@@ -9,30 +9,32 @@ import kr.co.lion.memoproject.databinding.ActivityEditMemoBinding
 
 class EditMemoActivity : AppCompatActivity() {
     lateinit var activityEditMemoBinding: ActivityEditMemoBinding
-
-    // EditMemoActivity 실행을 위한 런처
+    lateinit var oldSubtitle:String
+    lateinit var oldContent:String
+    var position = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_memo)
         activityEditMemoBinding = ActivityEditMemoBinding.inflate(layoutInflater)
         setContentView(activityEditMemoBinding.root)
 
-        initData()
+        setData()
+        setView()
         setToolbar()
-        setEvent()
     }
 
-    fun initData() {
+    fun setData() {
         activityEditMemoBinding.apply {
-            val subtitle = intent.getStringExtra("subtitle")
-            val content = intent.getStringExtra("content")
+            oldSubtitle = intent.getStringExtra("subtitle").toString()
+            oldContent = intent.getStringExtra("content").toString()
+            position = intent.getIntExtra("position", 0)
+        }
+    }
 
-            editTextEditSubtitle.apply {
-                text?.append(subtitle)
-            }
-            editTextEditContent.apply {
-                text?.append(content)
-            }
+    fun setView(){
+        activityEditMemoBinding.apply {
+            editTextEditSubtitle.text?.append(oldSubtitle)
+            editTextEditContent.text?.append(oldContent)
         }
     }
 
@@ -50,10 +52,9 @@ class EditMemoActivity : AppCompatActivity() {
                 setOnMenuItemClickListener {
                     when (it.itemId) {
                         R.id.menuItemEditMemoDone -> {
-                            val editIntent = Intent()
-                            editIntent.putExtra("newSubtitle", editTextEditSubtitle.text.toString())
-                            editIntent.putExtra("newContent", editTextEditContent.text.toString())
-                            setResult(RESULT_OK, editIntent)
+                            Util.memoList[position].subtitle = editTextEditSubtitle.text.toString()
+                            Util.memoList[position].content = editTextEditContent.text.toString()
+                            setResult(RESULT_OK)
                             finish()
                         }
                     }
@@ -61,9 +62,5 @@ class EditMemoActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    fun setEvent() {
-
     }
 }
