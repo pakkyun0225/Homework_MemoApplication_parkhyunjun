@@ -53,8 +53,8 @@ class AddMemoActivity : AppCompatActivity() {
 
                                 val memoIntent = Intent()
                                 memoIntent.putExtra("subtitle", memo.subtitle)
-                                memoIntent.putExtra("subtitle", memo.date)
-                                memoIntent.putExtra("subtitle", memo.content)
+                                memoIntent.putExtra("date", memo.date)
+                                memoIntent.putExtra("content", memo.content)
 
                                 setResult(RESULT_OK, memoIntent)
                                 Util.hideFocusKeyboard(this@AddMemoActivity)
