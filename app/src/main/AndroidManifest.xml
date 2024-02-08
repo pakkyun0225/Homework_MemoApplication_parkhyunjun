@@ -16,7 +16,7 @@
             android:name=".EditMemoActivity"
             android:exported="false" />
         <activity
-            android:name=".MemoListActivity"
+            android:name=".ShowMemoActivity"
             android:exported="false" />
         <activity
             android:name=".AddMemoActivity"

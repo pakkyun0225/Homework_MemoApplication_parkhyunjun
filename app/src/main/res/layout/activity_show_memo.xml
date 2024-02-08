@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MemoListActivity">
+    tools:context=".ShowMemoActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarMemoList"
+        android:id="@+id/toolbarShowMemo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMemoList"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarShowMemo"
         app:layout_constraintVertical_bias="0.06999999" />
 
     <TextView
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMemoList"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarShowMemo"
         app:layout_constraintVertical_bias="0.07" />
 
     <TextView
