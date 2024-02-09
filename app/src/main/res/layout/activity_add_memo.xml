@@ -10,7 +10,7 @@
         android:id="@+id/toolbarAddMemo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#F1E7FA"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
             android:singleLine="true"
+            android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menuItemAddMemoDone"
-        android:icon="@drawable/done_24px"
+        android:icon="@drawable/ic_check_circle"
         android:title="메모 작성 완료"
         app:showAsAction="ifRoom" />
 </menu>

@@ -68,7 +68,7 @@ class ShowMemoActivity : AppCompatActivity() {
                 title = "메모 보기"
                 inflateMenu(R.menu.menu_show_memo)
                 // 뒤로가기
-                setNavigationIcon(R.drawable.arrow_back_24px)
+                setNavigationIcon(R.drawable.ic_chevron_left)
                 setNavigationOnClickListener {
                     setResult(RESULT_CANCELED)
                     finish()

@@ -6,14 +6,14 @@
         android:id="@+id/menuItemMemoListEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/edit_24px"
+        android:icon="@drawable/ic_border_color"
         android:title="메모 수정"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menuItemMemoListDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/delete_24px"
+        android:icon="@drawable/ic_delete"
         android:title="메모 삭제"
         app:showAsAction="ifRoom" />
 </menu>

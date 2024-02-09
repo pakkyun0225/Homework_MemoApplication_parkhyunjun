@@ -6,7 +6,7 @@
         android:id="@+id/menuItemEditMemoDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/done_24px"
+        android:icon="@drawable/ic_check_circle"
         android:title="메모 수정 완료"
         app:showAsAction="ifRoom" />
 </menu>

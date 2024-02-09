@@ -45,7 +45,7 @@ class EditMemoActivity : AppCompatActivity() {
                 title = "메모 수정"
                 inflateMenu(R.menu.menu_edit_memo)
                 // 뒤로가기
-                setNavigationIcon(R.drawable.arrow_back_24px)
+                setNavigationIcon(R.drawable.ic_chevron_left)
                 setNavigationOnClickListener {
                     setResult(RESULT_CANCELED)
                     finish()

@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     fun setToolbar() {
         activityMainBinding.apply {
             toolbarMain.apply {
-                title = "메모 관리"
+                title = "Memo App"
                 inflateMenu(R.menu.menu_main)
                 setOnMenuItemClickListener {
                     when (it.itemId) {

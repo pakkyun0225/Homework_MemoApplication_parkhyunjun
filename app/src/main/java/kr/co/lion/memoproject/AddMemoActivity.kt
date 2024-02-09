@@ -35,7 +35,7 @@ class AddMemoActivity : AppCompatActivity() {
                 title = "메모 작성"
                 inflateMenu(R.menu.menu_add_memo)
                 // 뒤로가기
-                setNavigationIcon(R.drawable.arrow_back_24px)
+                setNavigationIcon(R.drawable.ic_chevron_left)
                 setNavigationOnClickListener {
                     setResult(RESULT_CANCELED)
                     Util.hideFocusKeyboard(this@AddMemoActivity)
