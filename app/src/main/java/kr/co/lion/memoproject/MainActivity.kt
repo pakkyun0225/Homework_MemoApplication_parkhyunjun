@@ -93,11 +93,6 @@ class MainActivity : AppCompatActivity() {
             recyclerViewMain.apply {
                 adapter = RecyclerViewAdapter()
                 layoutManager = LinearLayoutManager(this@MainActivity)
-                val deco = MaterialDividerItemDecoration(
-                    this@MainActivity,
-                    MaterialDividerItemDecoration.VERTICAL
-                )
-                addItemDecoration(deco)
             }
         }
     }
@@ -135,8 +130,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolderClass, position: Int) {
-            holder.rowMainBinding.textViewRowSubtitle.text = "제목   ${memoList[position].subtitle}"
-            holder.rowMainBinding.textViewRowDate.text = "작성 날짜   ${memoList[position].date}"
+            holder.rowMainBinding.textViewRowSubtitle.text = "${memoList[position].subtitle}"
+            holder.rowMainBinding.textViewRowDate.text = "${memoList[position].date}"
         }
     }
 }
