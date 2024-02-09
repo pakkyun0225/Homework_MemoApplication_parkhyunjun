@@ -1,18 +1,17 @@
 package kr.co.lion.memoproject
 
-import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.divider.MaterialDividerItemDecoration
 import kr.co.lion.memoproject.databinding.ActivityMainBinding
 import kr.co.lion.memoproject.databinding.RowBinding
 
@@ -47,9 +46,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setLauncher() {
-        val contract = ActivityResultContracts.StartActivityForResult()
+        val contract1 = ActivityResultContracts.StartActivityForResult()
         // AddMemoActivity 실행을 위한 런처, 돌아왔을 때의 코드
-        addMemoActivityLauncher = registerForActivityResult(contract) {
+        addMemoActivityLauncher = registerForActivityResult(contract1) {
             activityMainBinding.apply {
                 if (it != null) {
                     // 작업의 결과로 분기한다.
@@ -111,9 +110,11 @@ class MainActivity : AppCompatActivity() {
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
                 this.rowMainBinding.root.setOnClickListener {
+                    this.rowMainBinding.rowMainCardView.setBackgroundColor(Color.rgb(200,180,210))
                     val showIntent = Intent(this@MainActivity, ShowMemoActivity::class.java)
                     showIntent.putExtra("position", adapterPosition)
                     startActivity(showIntent)
+                    Handler().postDelayed({this.rowMainBinding.rowMainCardView.setBackgroundColor(Color.rgb(241,231,250))}, 80)
                 }
             }
         }
@@ -121,7 +122,6 @@ class MainActivity : AppCompatActivity() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
             val rowMainBinding = RowBinding.inflate(layoutInflater)
             val viewHolderClass = ViewHolderClass(rowMainBinding)
-
             return viewHolderClass
         }
 
