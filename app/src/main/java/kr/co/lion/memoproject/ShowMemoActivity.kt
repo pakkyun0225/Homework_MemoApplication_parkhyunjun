@@ -22,8 +22,8 @@ class ShowMemoActivity : AppCompatActivity() {
         activityShowMemoBinding = ActivityShowMemoBinding.inflate(layoutInflater)
         setContentView(activityShowMemoBinding.root)
 
-        setView()
         setData()
+        setView()
         setLauncher()
         setToolbar()
     }

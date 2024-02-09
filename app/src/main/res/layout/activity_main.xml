@@ -30,5 +30,19 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbarMain"
         app:layout_constraintVertical_bias="0.236" />
 
+    <TextView
+        android:id="@+id/textViewMainEmpty"
+        android:layout_width="285dp"
+        android:layout_height="50dp"
+        android:text="작성된 메모가 없습니다!"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewMain"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerViewMain"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewMain"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewMain"
+        app:layout_constraintVertical_bias="0.13" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

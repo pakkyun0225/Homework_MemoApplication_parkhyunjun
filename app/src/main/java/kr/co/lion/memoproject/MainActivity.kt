@@ -4,10 +4,12 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.divider.MaterialDividerItemDecoration
@@ -34,8 +36,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        activityMainBinding.recyclerViewMain.adapter?.notifyDataSetChanged()
+        activityMainBinding.apply {
+            if (memoList.size == 0) {
+                textViewMainEmpty.visibility = View.VISIBLE
+            } else {
+                textViewMainEmpty.visibility = View.GONE
+            }
+            recyclerViewMain.adapter?.notifyDataSetChanged()
+        }
     }
 
     fun setLauncher() {
@@ -49,6 +57,10 @@ class MainActivity : AppCompatActivity() {
                         RESULT_OK -> {
                             Util.toastMessage(this@MainActivity, "메모가 저장되었습니다.")
                             activityMainBinding.recyclerViewMain.adapter?.notifyDataSetChanged()
+                        }
+
+                        RESULT_CANCELED -> {
+                            Util.toastMessage(this@MainActivity, "메모 작성이 취소되었습니다.")
                         }
                     }
                 }
@@ -90,10 +102,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setEvent() {
-
-    }
-
     inner class RecyclerViewAdapter :
         RecyclerView.Adapter<RecyclerViewAdapter.ViewHolderClass>() {
 
@@ -109,7 +117,7 @@ class MainActivity : AppCompatActivity() {
                 )
                 this.rowMainBinding.root.setOnClickListener {
                     val showIntent = Intent(this@MainActivity, ShowMemoActivity::class.java)
-                    showIntent.putExtra("position",adapterPosition)
+                    showIntent.putExtra("position", adapterPosition)
                     startActivity(showIntent)
                 }
             }
@@ -127,8 +135,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolderClass, position: Int) {
-            holder.rowMainBinding.textViewRowSubtitle.text = "제목: ${memoList[position].subtitle}"
-            holder.rowMainBinding.textViewRowDate.text = "날짜: ${memoList[position].date}"
+            holder.rowMainBinding.textViewRowSubtitle.text = "제목   ${memoList[position].subtitle}"
+            holder.rowMainBinding.textViewRowDate.text = "작성 날짜   ${memoList[position].date}"
         }
     }
 }

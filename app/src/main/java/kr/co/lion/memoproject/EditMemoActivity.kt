@@ -1,5 +1,6 @@
 package kr.co.lion.memoproject
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -52,14 +53,48 @@ class EditMemoActivity : AppCompatActivity() {
                 setOnMenuItemClickListener {
                     when (it.itemId) {
                         R.id.menuItemEditMemoDone -> {
-                            Util.memoList[position].subtitle = editTextEditSubtitle.text.toString()
-                            Util.memoList[position].content = editTextEditContent.text.toString()
-                            setResult(RESULT_OK)
-                            finish()
+                            if (checkData()) {
+                                Util.memoList[position].subtitle =
+                                    editTextEditSubtitle.text.toString()
+                                Util.memoList[position].content =
+                                    editTextEditContent.text.toString()
+                                setResult(RESULT_OK)
+                                finish()
+                            }
                         }
                     }
                     true
                 }
+            }
+        }
+    }
+
+    fun checkData():Boolean {
+        activityEditMemoBinding.apply {
+            //제목 미입력
+            val subtitleText = editTextEditSubtitle.text.toString()
+            val contentText = editTextEditContent.text.toString()
+
+            if (subtitleText.trim().isEmpty()) {
+                Util.showAlertDialog(
+                    this@EditMemoActivity,
+                    "제목 입력 오류",
+                    "제목이 입력되지 않았습니다."
+                ) { dialogInterface: DialogInterface, i: Int ->
+                    Util.showFocusKeyboard(editTextEditSubtitle, this@EditMemoActivity)
+                }
+                return false
+            } else if (contentText.trim().isEmpty()) {
+                Util.showAlertDialog(
+                    this@EditMemoActivity,
+                    "내용 입력 오류",
+                    "내용이 입력되지 않았습니다."
+                ) { dialogInterface: DialogInterface, i: Int ->
+                    Util.showFocusKeyboard(editTextEditContent, this@EditMemoActivity)
+                }
+                return false
+            } else {
+                return true
             }
         }
     }
