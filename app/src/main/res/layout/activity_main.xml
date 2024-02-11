@@ -35,7 +35,7 @@
         android:id="@+id/textViewMainEmpty"
         android:layout_width="285dp"
         android:layout_height="50dp"
-        android:text="작성된 메모가 없습니다!"
+        android:text="작성된 메모가 없습니다."
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:visibility="invisible"
