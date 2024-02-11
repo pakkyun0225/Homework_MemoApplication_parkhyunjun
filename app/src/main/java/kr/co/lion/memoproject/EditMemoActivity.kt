@@ -44,7 +44,6 @@ class EditMemoActivity : AppCompatActivity() {
             toolbarEditMemo.apply {
                 title = "메모 수정"
                 inflateMenu(R.menu.menu_edit_memo)
-                // 뒤로가기
                 setNavigationIcon(R.drawable.ic_chevron_left)
                 setNavigationOnClickListener {
                     setResult(RESULT_CANCELED)
@@ -71,7 +70,6 @@ class EditMemoActivity : AppCompatActivity() {
 
     fun checkData():Boolean {
         activityEditMemoBinding.apply {
-            //제목 미입력
             val subtitleText = editTextEditSubtitle.text.toString()
             val contentText = editTextEditContent.text.toString()
 

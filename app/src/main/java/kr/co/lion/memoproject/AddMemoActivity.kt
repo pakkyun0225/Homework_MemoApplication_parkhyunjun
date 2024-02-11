@@ -34,7 +34,6 @@ class AddMemoActivity : AppCompatActivity() {
             toolbarAddMemo.apply {
                 title = "메모 작성"
                 inflateMenu(R.menu.menu_add_memo)
-                // 뒤로가기
                 setNavigationIcon(R.drawable.ic_chevron_left)
                 setNavigationOnClickListener {
                     setResult(RESULT_CANCELED)
@@ -43,12 +42,9 @@ class AddMemoActivity : AppCompatActivity() {
                 }
                 setOnMenuItemClickListener {
                     when (it.itemId) {
-                        // 메모 추가 완료
                         R.id.menuItemAddMemoDone -> {
-
-                            //입력 유효성 검사 메서드가 반환하는 값을 조건으로 동작
+                            //입력 유효성 검사 메서드가 반환하는 값을 조건으로 동작하는 코드
                             if (checkData()) {
-                                //데이터를 리스트에 저장
                                 saveData()
 
                                 Util.hideFocusKeyboard(this@AddMemoActivity)
@@ -65,7 +61,6 @@ class AddMemoActivity : AppCompatActivity() {
 
     fun checkData():Boolean {
         activityAddMemoBinding.apply {
-            //제목 미입력
             val subtitleText = editTextAddSubtitle.text.toString()
             val contentText = editTextAddContent.text.toString()
 

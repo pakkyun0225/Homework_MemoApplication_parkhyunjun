@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var activityMainBinding: ActivityMainBinding
     lateinit var addMemoActivityLauncher: ActivityResultLauncher<Intent>
 
-    // 메모 리스트 객체
     val memoList = Util.memoList
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +46,6 @@ class MainActivity : AppCompatActivity() {
 
     fun setLauncher() {
         val contract1 = ActivityResultContracts.StartActivityForResult()
-        // AddMemoActivity 실행을 위한 런처, 돌아왔을 때의 코드
         addMemoActivityLauncher = registerForActivityResult(contract1) {
             activityMainBinding.apply {
                 if (it != null) {

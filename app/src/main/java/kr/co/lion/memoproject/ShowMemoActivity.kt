@@ -11,7 +11,6 @@ import kr.co.lion.memoproject.databinding.ActivityShowMemoBinding
 
 class ShowMemoActivity : AppCompatActivity() {
     lateinit var activityShowMemoBinding: ActivityShowMemoBinding
-    // EditMemoActivity 실행을 위한 런처
     lateinit var editMemoActivityLauncher: ActivityResultLauncher<Intent>
 
     var position = 0
@@ -47,7 +46,6 @@ class ShowMemoActivity : AppCompatActivity() {
         activityShowMemoBinding.apply {
             editMemoActivityLauncher = registerForActivityResult(contract) {
                 if (it != null) {
-                    // 작업의 결과로 분기한다.
                     when (it.resultCode) {
                         RESULT_OK -> {
                             setView()
@@ -67,7 +65,6 @@ class ShowMemoActivity : AppCompatActivity() {
             toolbarShowMemo.apply {
                 title = "메모 보기"
                 inflateMenu(R.menu.menu_show_memo)
-                // 뒤로가기
                 setNavigationIcon(R.drawable.ic_chevron_left)
                 setNavigationOnClickListener {
                     setResult(RESULT_CANCELED)
